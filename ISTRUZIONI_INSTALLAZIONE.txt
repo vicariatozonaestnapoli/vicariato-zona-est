@@ -1,0 +1,10 @@
+APP VICARIATO ZONA EST - ISTRUZIONI
+
+1. Pubblica i file di questa cartella su un hosting HTTPS (es. Netlify, GitHub Pages o Firebase Hosting).
+2. iPhone: apri il link pubblicato in Safari > Condividi > Aggiungi alla schermata Home.
+3. Android: apri il link pubblicato in Chrome > menu > Installa app / Aggiungi a schermata Home.
+4. I tre gestionali mantengono i collegamenti Google Apps Script già presenti.
+5. L’elenco automatico dei documenti richiede Google Apps Script: nella PWA separata è presente il link diretto all’archivio Google Drive. Per integrare la lista automatica, occorre un endpoint sicuro per i documenti o il link al portale Apps Script pubblicato.
+6. Non aprire index.html direttamente dal disco per testare installazione/offline: è necessario HTTPS.
+
+Il pacchetto non è una app nativa pubblicata su App Store o Google Play.
