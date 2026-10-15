@@ -8,7 +8,11 @@
 href="https://script.google.com/macros/s/AKfycbxjlwfCCDXAMqiA2dpf83qCfLORQ0jrPHZT6idXEOIrruyE-t6Vwezw35j3r383lQ0V/exec#archivio"
 target="_blank"
 rel="noopener noreferrer">
-Apri archivio documentale ↗️
+<button type="button" class="action"
+  onclick="apriArchivioIntegrato()"
+  style="border:0;cursor:pointer;width:100%">
+  Apri archivio documentale ↓
+</button>
 </a></section>
 </div><section class="archive-panel" id="archivio" hidden><h2>Archivio Documenti</h2><p class="muted">Seleziona un documento per aprirlo o scaricarlo da Google Drive.</p><p id="archiveStatus" role="status">Caricamento documenti…</p><div id="categoryTabs" class="category-tabs" role="group" aria-label="Filtra per categoria"></div><h3>Seleziona il Decanato</h3><div id="decanatoTabs" class="decanato-tabs" role="group" aria-label="Filtra per decanato"></div><ul id="archiveList" class="doc-list"></ul><button type="button" id="refreshDocs" class="action" style="border:0;cursor:pointer;margin-top:14px">Aggiorna elenco</button></section><aside class="notice"><strong>Archivi indipendenti.</strong> Ogni pulsante apre il gestionale del relativo Decanato. I dati rimangono nei rispettivi Google Sheets. L’accesso ai gestionali dipende dalle impostazioni di pubblicazione delle singole applicazioni.</aside></main><footer>Arcidiocesi di Napoli · Vicariato Zona Est · VI · VII · IX</footer><script>
 (function(){
@@ -46,4 +50,22 @@ function load(){status.textContent='Caricamento documenti…';list.replaceChildr
 document.getElementById('refreshDocs').addEventListener('click',load);
 if(location.hash==='#archivio'){panel.hidden=false;load();}
 })();
-</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script></body></html>
+</script><script>if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}</script><script>
+function apriArchivioIntegrato() {
+  const archivio = document.getElementById('archivio');
+  archivio.hidden = false;
+
+  archivio.innerHTML = `
+    <h2>Archivio Documenti</h2>
+    <p>Consulta i documenti del Vicariato Zona Est.</p>
+    <iframe
+      title="Archivio Documenti Vicariato Zona Est"
+      src="https://script.google.com/macros/s/AKfycbxjlwfCCDXAMqiA2dpf83qCfLORQ0jrPHZT6idXEOIrruyE-t6Vwezw35j3r383lQ0V/exec#archivio"
+      style="width:100%;height:75vh;min-height:500px;border:1px solid #ddd;border-radius:12px"
+      allow="fullscreen">
+    </iframe>
+  `;
+
+  archivio.scrollIntoView({behavior:'smooth'});
+}
+</script></body></html>
