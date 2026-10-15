@@ -4,7 +4,12 @@
 <section class="card"><div class="number">VI</div><h2>VI Decanato</h2><p>Parrocchie, religiosi, congregazioni, strutture e attività.</p><a class="action" href="https://script.google.com/macros/s/AKfycbwXbs4LSSShjNXi67PrVHX3tqfdSxgHiin03iwDszBRiHBmwNZDm_WCVE1nnvqgcdv7/exec" target="_blank" rel="noopener noreferrer" aria-label="Apri il gestionale del VI Decanato">Apri gestionale ↗</a></section>
 <section class="card"><div class="number">VII</div><h2>VII Decanato</h2><p>Consultazione e aggiornamento dell’archivio del VII Decanato.</p><a class="action" href="https://script.google.com/macros/s/AKfycbxd2taBEPRsmeRQp2Qq9Gj-0XBiCgLFdUUnPF99zkYr635MrIwLod_beHgb_xTRkagFqQ/exec" target="_blank" rel="noopener noreferrer" aria-label="Apri il gestionale del VII Decanato">Apri gestionale ↗</a></section>
 <section class="card"><div class="number">IX</div><h2>IX Decanato</h2><p>Parrocchie, religiosi, congregazioni, strutture e visite pastorali.</p><a class="action" href="https://script.google.com/macros/s/AKfycbx3F756S7_18gBAyLogDWTWWtikF81H3eliot2Z8xMQv_i40ZviLSYehIFCZ1aaPfLd/exec" target="_blank" rel="noopener noreferrer" aria-label="Apri il gestionale del IX Decanato">Apri gestionale ↗</a></section>
-<section class="card"><div class="number" aria-hidden="true">▤</div><h2>Archivio Documenti</h2><p>Documenti, moduli, circolari e materiali da consultare e scaricare.</p><a class="action" href="#archivio" id="openArchive">Apri archivio ↓</a></section>
+<section class="card"><div class="number" aria-hidden="true">▤</div><h2>Archivio Documenti</h2><p>Documenti, moduli, circolari e materiali da consultare e scaricare.</p><a class="action" 
+href="https://script.google.com/macros/s/AKfycbxjlwfCCDXAMqiA2dpf83qCfLORQ0jrPHZT6idXEOIrruyE-t6Vwezw35j3r383lQ0V/exec#archivio"
+target="_blank"
+rel="noopener noreferrer">
+Apri archivio documentale ↗️
+</a></section>
 </div><section class="archive-panel" id="archivio" hidden><h2>Archivio Documenti</h2><p class="muted">Seleziona un documento per aprirlo o scaricarlo da Google Drive.</p><p id="archiveStatus" role="status">Caricamento documenti…</p><div id="categoryTabs" class="category-tabs" role="group" aria-label="Filtra per categoria"></div><h3>Seleziona il Decanato</h3><div id="decanatoTabs" class="decanato-tabs" role="group" aria-label="Filtra per decanato"></div><ul id="archiveList" class="doc-list"></ul><button type="button" id="refreshDocs" class="action" style="border:0;cursor:pointer;margin-top:14px">Aggiorna elenco</button></section><aside class="notice"><strong>Archivi indipendenti.</strong> Ogni pulsante apre il gestionale del relativo Decanato. I dati rimangono nei rispettivi Google Sheets. L’accesso ai gestionali dipende dalle impostazioni di pubblicazione delle singole applicazioni.</aside></main><footer>Arcidiocesi di Napoli · Vicariato Zona Est · VI · VII · IX</footer><script>
 (function(){
 const panel=document.getElementById('archivio'), status=document.getElementById('archiveStatus'), list=document.getElementById('archiveList'), tabs=document.getElementById('categoryTabs');
@@ -38,7 +43,6 @@ function load(){status.textContent='Caricamento documenti…';list.replaceChildr
   documents=(res&&res.files)||[];render();
  }).withFailureHandler(function(e){status.textContent='Impossibile leggere l’archivio: '+(e&&e.message?e.message:'errore sconosciuto');}).getDocuments();
 }
-document.getElementById('openArchive').addEventListener('click',function(){panel.hidden=false;load();});
 document.getElementById('refreshDocs').addEventListener('click',load);
 if(location.hash==='#archivio'){panel.hidden=false;load();}
 })();
